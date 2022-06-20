@@ -17,4 +17,10 @@ class QueriesController < ApplicationController
       redirect_to ask_path
     end
   end
+
+  def destroy
+    @query = Query.find(params[:id]).destroy
+
+    redirect_to root_path
+  end
 end
