@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   root "queries#index"
 
   get "/queries", to: "queries#index"
+  get "/ask", to: "queries#new"
+
+  post "/", to: "queries#create"
   
 end
