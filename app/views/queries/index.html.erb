@@ -1,4 +1,24 @@
-<div>
-  <h1 class="font-bold text-4xl">Queries#index</h1>
-  <p>Find me in app/views/queries/index.html.erb</p>
-</div>
+<%= tag.h2 "Queries", class: "text-3xl text-center mb-10" %>
+
+<%= tag.div class:"max-w-7xl mx-auto flex flex-col items-end" do %>
+  <%= link_to "New Query", ask_path, class: "btn w-fit my-4" %>
+  <table class="table">
+  <%= tag.thead do %>
+    <tr class="table-row text-center">
+      <%= tag.th "Timestamp" %>
+      <%= tag.th "Prompt" %>
+      <%= tag.th "Completion" %>
+      <%= tag.th %>
+    </tr>
+  <% end %>
+
+    <% @queries.each do |query| %>
+      <tr>
+        <%= tag.td query.created_at.to_fs(:short) %>
+        <%= tag.td tag.p(query.prompt, class:"whitespace-normal") %>
+        <%= tag.td tag.p(query.completion, class:"whitespace-normal") %>
+        <%= tag.td "TRASH_ICON" %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
