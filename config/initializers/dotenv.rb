@@ -1,1 +1,0 @@
-Dotenv.require_keys("OPENAI_SECRET_KEY")

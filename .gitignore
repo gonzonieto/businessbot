@@ -13,9 +13,6 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore environment variables
-/.env
-
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/
