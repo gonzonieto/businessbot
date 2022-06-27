@@ -1,6 +1,6 @@
 class Query < ApplicationRecord
 
-  openai_api_key = Rails.application.credentials[:OPENAI_API_KEY]
+  openai_api_key = Rails.application.credentials[:openai_api_key]
 
   def askGPT
     response = HTTParty.post('https://api.openai.com/v1/completions',
