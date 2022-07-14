@@ -1,4 +1,10 @@
 GEM
+  remote: https://dl.fontawesome.com/basic/fontawesome-pro/ruby/
+  specs:
+    font-awesome-pro-sass (6.1.1)
+      sassc (~> 2.0)
+
+GEM
   remote: https://rubygems.org/
   specs:
     actioncable (7.0.3)
@@ -89,6 +95,7 @@ GEM
       reline (>= 0.2.7)
     digest (3.1.0)
     erubi (1.10.0)
+    ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     httparty (0.20.0)
@@ -177,6 +184,8 @@ GEM
       io-console (~> 0.5)
     rexml (3.2.5)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.2.1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -226,6 +235,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  font-awesome-pro-sass (= 6.1.1)!
   httparty (~> 0.20.0)
   importmap-rails
   jbuilder

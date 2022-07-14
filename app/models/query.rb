@@ -1,7 +1,5 @@
 class Query < ApplicationRecord
 
-  openai_api_key = Rails.application.credentials[:openai_api_key]
-
   def askGPT
     response = HTTParty.post('https://api.openai.com/v1/completions',
       :body => {
@@ -12,7 +10,7 @@ class Query < ApplicationRecord
       }.to_json,
         :headers => {
           "Content-Type": "application/json",
-          "Authorization": openai_api_key
+          "Authorization": "Bearer " + Rails.application.credentials.openai_api_key
         })
     response["choices"][0]["text"].strip
   end
