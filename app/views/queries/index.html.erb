@@ -18,10 +18,9 @@
         <%= tag.td query.created_at.to_fs(:short) %>
         <%= tag.td tag.p(query.prompt, class:"whitespace-normal") %>
         <%= tag.td tag.p(query.completion, class:"whitespace-normal") %>
-        <%= tag.td button_to("TRASH_ICON", query_path(query), method: :delete) %>
+        <%= tag.td button_to(icon('fa-solid', 'trash-can'), query_path(query), method: :delete) %>
       </tr>
     <% end %>
   <% end %>
-
   </table>
 <% end %>
