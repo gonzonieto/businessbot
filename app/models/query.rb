@@ -1,5 +1,7 @@
 class Query < ApplicationRecord
-
+  
+  default_scope { order(created_at: :desc) }
+  
   def askGPT
     response = HTTParty.post('https://api.openai.com/v1/completions',
       :body => {
