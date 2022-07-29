@@ -1,10 +1,4 @@
 GEM
-  remote: https://dl.fontawesome.com/basic/fontawesome-pro/ruby/
-  specs:
-    font-awesome-pro-sass (6.1.1)
-      sassc (~> 2.0)
-
-GEM
   remote: https://rubygems.org/
   specs:
     actioncable (7.0.3)
@@ -243,7 +237,6 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
-  font-awesome-pro-sass (= 6.1.1)!
   httparty (~> 0.20.0)
   importmap-rails
   jbuilder
