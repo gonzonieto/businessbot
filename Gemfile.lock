@@ -121,7 +121,6 @@ GEM
     minitest (5.16.0)
     msgpack (1.5.2)
     multi_xml (0.6.0)
-    mysql2 (0.5.4)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -139,6 +138,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
+    pg (1.4.2)
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
@@ -240,7 +240,7 @@ DEPENDENCIES
   httparty (~> 0.20.0)
   importmap-rails
   jbuilder
-  mysql2 (~> 0.5)
+  pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3)
   sassc-rails
