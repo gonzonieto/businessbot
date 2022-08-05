@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Query.create(prompt: 'Is this a test?', completion: 'Yes, yes it is.')
+Query.create(
+  prompt: 'Here is a longer response with several line breaks scattered throughout.',
+  completion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ante urna, suscipit.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ante urna, suscipit.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ante urna, suscipit.\n')
