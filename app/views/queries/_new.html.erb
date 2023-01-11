@@ -1,0 +1,5 @@
+<%= form_for :query, url: queries_path, class: "grow flex gap-x-4" do |form| %>
+  <%= form.label :prompt, hidden: :hidden %>
+  <%= form.text_field :prompt, placeholder: "Ask away...", class: "input input-bordered grow", data: { "query-form-target": "queryFormTextField" } %>
+  <%= form.submit "Submit", class: "btn btn-outline btn-success" %>
+<% end %>
