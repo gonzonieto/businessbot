@@ -19,7 +19,22 @@ class QueriesController < ApplicationController
   end
 
   def destroy
-    @query = Query.find(params[:id]).destroy
+    @query = Query.find(params[:id])
+    
+    if @query.favourite
+      flash.alert = "Favourited queries cannot be deleted."
+    else 
+      @query.destroy
+    end
+    
+    redirect_to root_path
+  end
+
+  def favourite
+    @query = Query.find(params[:id])
+
+    @query.favourite = !@query.favourite
+    @query.save!
 
     redirect_to root_path
   end
