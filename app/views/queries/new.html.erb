@@ -1,8 +1,0 @@
-<h2 class="text-3xl text-center mb-10">New Query</h2>
-
-  <%= form_for :query, url: queries_path, html: {class: "form-control w-3/4 mx-auto"} do |form| %>
-  <%= form.label :prompt, class: "label text-xl" %>
-  <%= form.text_field :prompt %>
-
-  <%= form.submit "" %>
-<% end %>
