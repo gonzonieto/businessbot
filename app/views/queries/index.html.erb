@@ -1,26 +1,38 @@
-<%= tag.h2 "Queries", class: "text-3xl text-center mb-10" %>
-
-<%= tag.div class:"max-w-7xl mx-auto flex flex-col items-end" do %>
-  <%= link_to "New Query", new_query_path, class: "btn w-fit my-4" %>
-  <table class="table">
-  <%= tag.thead do %>
-    <tr class="table-row text-center">
-      <%= tag.th "Timestamp" %>
-      <%= tag.th "Prompt" %>
-      <%= tag.th "Response" %>
-      <%= tag.th "Actions" %>
-    </tr>
+<%= tag.div class: "flex justify-end gap-x-4", data: { controller: "query-form" } do %>
+  <%= tag.div data: { "query-form-target": "queryFormContainer" }, class: "hidden grow" do %>
+    <%= render 'new' %>
   <% end %>
+  <%= link_to "New Query", "#", class: "btn btn-primary mb-2 float-right w-1/5 kbd", data: { "query-form-target": "queryFormButton", action: "click->query-form#showForm" } %>
+<% end %>
 
-  <%= tag.tbody do %>
-    <% @queries.each do |query| %>
-      <tr>
-        <%= tag.td query.created_at.to_fs(:short) %>
-        <%= tag.td tag.p(query.prompt, class:"whitespace-normal") %>
-        <%= tag.td tag.p(query.completion, class:"whitespace-normal") %>
-        <%= tag.td button_to(icon('trash-can', 'solid'), query_path(query), method: :delete) %>
-      </tr>
+<%= tag.div class: "py-4" do %>
+  <%= tag.table class: "table table-zebra mx-auto w-full" do %>
+    <%= tag.thead do %>
+      <%= tag.tr class: "text-center" do %>
+        <%= tag.th "Timestamp", class: "text-left" %>
+        <%= tag.th "Prompt" %>
+        <%= tag.th "Response" %>
+        <%= tag.th "Actions" %>
+      <% end %>
+    <% end %>
+
+    <%= tag.tbody do %>
+      <% @queries.each do |query| %>
+        <%= tag.tr do %>
+          <%= tag.td class: "text-left" do %>
+            <%= tag.p query.created_at.strftime('%b %d') %>
+            <%= tag.p query.created_at.strftime('%H:%M') %>
+          <% end %>
+          <%= tag.td tag.p(query.prompt, class: "whitespace-normal prose md:prose-sm") %>
+          <%= tag.td tag.p(query.completion, class: "whitespace-normal prose ") %>
+          <%= tag.td do %>
+            <%= tag.div class: "flex justify-center gap-x-2" do %>
+              <%= button_to(icon('trash-can', 'solid', 'text-red-600'), query_path(query), method: :delete) %>
+              <%= button_to(icon('star', 'solid', query.favourite ? 'text-yellow-400' : ''), query_favourite_path(query), method: :patch) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
-  </table>
 <% end %>
